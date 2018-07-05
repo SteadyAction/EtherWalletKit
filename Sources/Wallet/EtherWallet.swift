@@ -1,6 +1,8 @@
 import web3swift
 
-class EtherWallet {
+public class EtherWallet {
+    public class Utils { private init() { } }
+    
     public static let shared = EtherWallet()
     
     private let web3Main = Web3.InfuraMainnetWeb3()
@@ -8,12 +10,24 @@ class EtherWallet {
     private let keystoreDirectoryName = "/keystore"
     private let keystoreFileName = "/key.json"
     
+    private var keystoreCache: EthereumKeystoreV3? = nil
+    
     private init() { }
+    
+    public var hasAccount: Bool {
+        return (try? loadKeystore()) != nil
+    }
+    
+    public var address: String? {
+        guard let keystore = try? loadKeystore() else { return nil }
+        return keystore.getAddress()?.address
+    }
     
     public func generateAccount(password: String) throws {
         guard let keystore = try EthereumKeystoreV3(password: password) else {
             throw WalletError.malformedKeystore
         }
+        
         try saveKeystore(keystore)
     }
     
@@ -27,12 +41,10 @@ class EtherWallet {
         
         try saveKeystore(keystore)
     }
-
-    public func hasAccount() -> Bool {
-        return try? loadKeystore() != nil
-    }
     
     private func saveKeystore(_ keystore: EthereumKeystoreV3) throws {
+        keystoreCache = keystore
+        
         guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
             throw WalletError.invalidPath
         }
@@ -54,6 +66,10 @@ class EtherWallet {
     }
     
     private func loadKeystore() throws -> EthereumKeystoreV3 {
+        if let keystore = keystoreCache {
+            return keystore
+        }
+        
         guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
             throw WalletError.invalidPath
         }
@@ -66,6 +82,22 @@ class EtherWallet {
         guard let keystore = keystoreManager.walletForAddress(address) as? EthereumKeystoreV3 else {
             throw WalletError.malformedKeystore
         }
+        
+        keystoreCache = keystore
+        
         return keystore
+    }
+    
+    public func privateKey(password: String) throws -> String {
+        let keystore = try loadKeystore()
+        guard let address = keystore.getAddress()?.address else {
+            throw WalletError.malformedKeystore
+        }
+        guard let ethereumAddress = EthereumAddress(address) else {
+            throw  WalletError.invalidAddress
+        }
+        let privateKeyData = try keystore.UNSAFE_getPrivateKeyData(password: password, account: ethereumAddress)
+        
+        return privateKeyData.toHexString()
     }
 }
