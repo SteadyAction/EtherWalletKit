@@ -26,8 +26,9 @@
 		E83C24AB20E39BE6005645EF /* EtherscanAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C24AA20E39BE6005645EF /* EtherscanAPIResponse.swift */; };
 		E83C24AF20E39C2F005645EF /* TransactionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C24AE20E39C2F005645EF /* TransactionData.swift */; };
 		E849CEBA20EB1D0700F38B76 /* GasStationAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E849CEB920EB1D0700F38B76 /* GasStationAPIResponse.swift */; };
-		E849CEBC20EB4BA200F38B76 /* TokenInfoAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E849CEBB20EB4BA200F38B76 /* TokenInfoAPIResponse.swift */; };
+		E849CEBC20EB4BA200F38B76 /* EthplorerAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E849CEBB20EB4BA200F38B76 /* EthplorerAPIResponse.swift */; };
 		E849CEBE20EB5C3B00F38B76 /* WalletError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E849CEBD20EB5C3B00F38B76 /* WalletError.swift */; };
+		E849CEC020EDD1EB00F38B76 /* EtherWallet+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E849CEBF20EDD1EB00F38B76 /* EtherWallet+Utils.swift */; };
 		OBJ_29 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_43 /* EtherWalletKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "EtherWalletKit::EtherWalletKit::Product" /* EtherWalletKit.framework */; };
 /* End PBXBuildFile section */
@@ -57,8 +58,9 @@
 		E83C24AA20E39BE6005645EF /* EtherscanAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherscanAPIResponse.swift; sourceTree = "<group>"; };
 		E83C24AE20E39C2F005645EF /* TransactionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionData.swift; sourceTree = "<group>"; };
 		E849CEB920EB1D0700F38B76 /* GasStationAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationAPIResponse.swift; sourceTree = "<group>"; };
-		E849CEBB20EB4BA200F38B76 /* TokenInfoAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInfoAPIResponse.swift; sourceTree = "<group>"; };
+		E849CEBB20EB4BA200F38B76 /* EthplorerAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthplorerAPIResponse.swift; sourceTree = "<group>"; };
 		E849CEBD20EB5C3B00F38B76 /* WalletError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletError.swift; sourceTree = "<group>"; };
+		E849CEBF20EDD1EB00F38B76 /* EtherWallet+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EtherWallet+Utils.swift"; sourceTree = "<group>"; };
 		E8665C8520E394CF00F4AD19 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E8665C8620E394CF00F4AD19 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E8665C8720E394CF00F4AD19 /* EtherWalletKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EtherWalletKit.podspec; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				E83C24A020E399B0005645EF /* EtherWallet.swift */,
+				E849CEBF20EDD1EB00F38B76 /* EtherWallet+Utils.swift */,
 				E849CEBD20EB5C3B00F38B76 /* WalletError.swift */,
 			);
 			path = Wallet;
@@ -134,7 +137,7 @@
 			children = (
 				E83C24AA20E39BE6005645EF /* EtherscanAPIResponse.swift */,
 				E849CEB920EB1D0700F38B76 /* GasStationAPIResponse.swift */,
-				E849CEBB20EB4BA200F38B76 /* TokenInfoAPIResponse.swift */,
+				E849CEBB20EB4BA200F38B76 /* EthplorerAPIResponse.swift */,
 				E83C24AE20E39C2F005645EF /* TransactionData.swift */,
 			);
 			path = Structure;
@@ -272,8 +275,9 @@
 				E83C24A120E399B0005645EF /* EtherWallet.swift in Sources */,
 				E83C24AF20E39C2F005645EF /* TransactionData.swift in Sources */,
 				E849CEBA20EB1D0700F38B76 /* GasStationAPIResponse.swift in Sources */,
+				E849CEC020EDD1EB00F38B76 /* EtherWallet+Utils.swift in Sources */,
 				E849CEBE20EB5C3B00F38B76 /* WalletError.swift in Sources */,
-				E849CEBC20EB4BA200F38B76 /* TokenInfoAPIResponse.swift in Sources */,
+				E849CEBC20EB4BA200F38B76 /* EthplorerAPIResponse.swift in Sources */,
 				E83C24AB20E39BE6005645EF /* EtherscanAPIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
