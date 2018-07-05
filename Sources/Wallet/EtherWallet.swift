@@ -100,4 +100,8 @@ public class EtherWallet {
         
         return privateKeyData.toHexString()
     }
+    
+    public func isCorrectPassword(_ password: String) -> Bool {
+        return (try? privateKey(password: password)) != nil
+    }
 }
