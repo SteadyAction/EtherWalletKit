@@ -108,4 +108,27 @@ public class EtherWallet {
         
         return keystore
     }
+    
+    // MARK: Account Balance
+    
+    public func etherBalanceSync() throws -> String {
+        guard let address = address else { throw WalletError.accountDoesNotExist }
+        guard let ethereumAddress = EthereumAddress(address) else { throw WalletError.invalidAddress }
+        
+        let balanceInWeiUnitResult = web3Main.eth.getBalance(address: ethereumAddress)
+        guard case .success(let balanceInWei) = balanceInWeiUnitResult else { throw WalletError.networkFailure }
+
+        guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWei, toUnits: Web3.Utils.Units.eth, decimals: 8, decimalSeparator: ".") else { throw WalletError.conversionFailure }
+        
+        return balanceInEtherUnitStr
+    }
+    
+    public func etherBalance(completion: @escaping (String?) -> ()) {
+        DispatchQueue.global().async {
+            let balance = try? self.etherBalanceSync()
+            DispatchQueue.main.async {
+                completion(balance)
+            }
+        }
+    }
 }

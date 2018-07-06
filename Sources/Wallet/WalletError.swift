@@ -4,4 +4,6 @@ public enum WalletError: Error {
     case invalidKey
     case invalidAddress
     case malformedKeystore
+    case networkFailure
+    case conversionFailure
 }
