@@ -1,4 +1,5 @@
 import web3swift
+import BigInt
 
 public class EtherWallet {
     public class Utils { private init() { } }
@@ -9,10 +10,25 @@ public class EtherWallet {
     
     private let keystoreDirectoryName = "/keystore"
     private let keystoreFileName = "/key.json"
+    private let gasLimitForTokenTransfer = 100000
+    private let gasLimitForEthTransfer = 21000
     
-    private var keystoreCache: EthereumKeystoreV3? = nil
+    private var options: Web3Options
+    private var keystoreCache: EthereumKeystoreV3?
     
-    private init() { }
+    private init() {
+        options = Web3Options.defaultOptions()
+        options.gasLimit = BigUInt(gasLimitForTokenTransfer)
+        setupOptionsFrom()
+    }
+    
+    private func setupOptionsFrom() {
+        if let address = address {
+            options.from = EthereumAddress(address)
+        } else {
+            options.from = nil
+        }
+    }
     
     // MARK: Account Info
     
@@ -84,6 +100,8 @@ public class EtherWallet {
         }
         
         FileManager.default.createFile(atPath: userDir + keystoreDirectoryName + keystoreFileName, contents: keystoreData, attributes: nil)
+        
+        setupOptionsFrom()
     }
     
     private func loadKeystore() throws -> EthereumKeystoreV3 {
@@ -126,6 +144,31 @@ public class EtherWallet {
     public func etherBalance(completion: @escaping (String?) -> ()) {
         DispatchQueue.global().async {
             let balance = try? self.etherBalanceSync()
+            DispatchQueue.main.async {
+                completion(balance)
+            }
+        }
+    }
+    
+    public func tokenBalance(contractAddress: String) throws -> String {
+        let contractEthreumAddress = EthereumAddress(contractAddress)
+        guard let contract = web3Main.contract(Web3.Utils.erc20ABI, at: contractEthreumAddress) else { throw
+            WalletError.invalidAddress
+        }
+        guard let address = address else { throw WalletError.accountDoesNotExist }
+        
+        let parameters = [address as AnyObject]
+        let contractMethod = contract.method("balanceOf", parameters: parameters, extraData: Data(), options: options)
+        let balanceOfCallResult = contractMethod?.call(options: nil)
+        guard case .success(let balanceInfo)? = balanceOfCallResult, let balance = balanceInfo["0"] as? BigUInt else { throw WalletError.networkFailure
+        }
+        
+        return "\(balance)"
+    }
+    
+    public func tokenBalanceAsync(contractAddress: String, completion: @escaping (String?) -> ()) {
+        DispatchQueue.global().async {
+            let balance = try? self.tokenBalance(contractAddress: contractAddress)
             DispatchQueue.main.async {
                 completion(balance)
             }
