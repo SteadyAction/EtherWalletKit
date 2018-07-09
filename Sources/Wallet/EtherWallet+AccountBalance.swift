@@ -1,10 +1,3 @@
-//
-//  EtherWallet+AccountBalance.swift
-//  EtherWalletKit
-//
-//  Created by Steve Chang on 09/07/2018.
-//
-
 import web3swift
 import BigInt
 

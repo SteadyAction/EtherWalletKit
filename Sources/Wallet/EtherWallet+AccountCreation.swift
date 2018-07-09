@@ -1,10 +1,3 @@
-//
-//  EtherWallet+AccountCreation.swift
-//  EtherWalletKit
-//
-//  Created by Steve Chang on 09/07/2018.
-//
-
 import web3swift
 
 extension EtherWallet {
