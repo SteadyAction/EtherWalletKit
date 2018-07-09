@@ -2,7 +2,10 @@ import web3swift
 import BigInt
 
 public class EtherWallet {
-    public class Utils { private init() { } }
+    public class Utils {
+        static let shared = EtherWallet.Utils()
+        private init() { }
+    }
     
     public static let shared = EtherWallet()
     
