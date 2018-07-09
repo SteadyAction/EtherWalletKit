@@ -10,15 +10,14 @@ public class EtherWallet {
     
     private let keystoreDirectoryName = "/keystore"
     private let keystoreFileName = "/key.json"
-    private let gasLimitForTokenTransfer = 100000
-    private let gasLimitForEthTransfer = 21000
+    private let defaultGasLimitForTokenTransfer = 100000
     
     private var options: Web3Options
     private var keystoreCache: EthereumKeystoreV3?
     
     private init() {
         options = Web3Options.defaultOptions()
-        options.gasLimit = BigUInt(gasLimitForTokenTransfer)
+        options.gasLimit = BigUInt(defaultGasLimitForTokenTransfer)
         setupOptionsFrom()
     }
     
@@ -202,5 +201,4 @@ public class EtherWallet {
             }
         }
     }
-    
 }
