@@ -25,6 +25,7 @@
 		E83118B620F3391E00FF3CCC /* EtherWallet+AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83118B520F3391E00FF3CCC /* EtherWallet+AccountInfo.swift */; };
 		E83118B820F33AEE00FF3CCC /* EtherWallet+AccountCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83118B720F33AEE00FF3CCC /* EtherWallet+AccountCreation.swift */; };
 		E83118BA20F33BCA00FF3CCC /* EtherWallet+AccountBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83118B920F33BC900FF3CCC /* EtherWallet+AccountBalance.swift */; };
+		E83118C120F4523D00FF3CCC /* EtherWallet+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83118C020F4523A00FF3CCC /* EtherWallet+Transaction.swift */; };
 		E83C24A120E399B0005645EF /* EtherWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C24A020E399B0005645EF /* EtherWallet.swift */; };
 		E83C24AB20E39BE6005645EF /* EtherscanAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C24AA20E39BE6005645EF /* EtherscanAPIResponse.swift */; };
 		E83C24AF20E39C2F005645EF /* TransactionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C24AE20E39C2F005645EF /* TransactionData.swift */; };
@@ -60,6 +61,7 @@
 		E83118B520F3391E00FF3CCC /* EtherWallet+AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EtherWallet+AccountInfo.swift"; sourceTree = "<group>"; };
 		E83118B720F33AEE00FF3CCC /* EtherWallet+AccountCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EtherWallet+AccountCreation.swift"; sourceTree = "<group>"; };
 		E83118B920F33BC900FF3CCC /* EtherWallet+AccountBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EtherWallet+AccountBalance.swift"; sourceTree = "<group>"; };
+		E83118C020F4523A00FF3CCC /* EtherWallet+Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EtherWallet+Transaction.swift"; sourceTree = "<group>"; };
 		E83C24A020E399B0005645EF /* EtherWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtherWallet.swift; sourceTree = "<group>"; };
 		E83C24AA20E39BE6005645EF /* EtherscanAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherscanAPIResponse.swift; sourceTree = "<group>"; };
 		E83C24AE20E39C2F005645EF /* TransactionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionData.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				E83118B520F3391E00FF3CCC /* EtherWallet+AccountInfo.swift */,
 				E83118B720F33AEE00FF3CCC /* EtherWallet+AccountCreation.swift */,
 				E83118B920F33BC900FF3CCC /* EtherWallet+AccountBalance.swift */,
+				E83118C020F4523A00FF3CCC /* EtherWallet+Transaction.swift */,
 				E849CEBD20EB5C3B00F38B76 /* WalletError.swift */,
 			);
 			path = Wallet;
@@ -287,6 +290,7 @@
 				E83118B820F33AEE00FF3CCC /* EtherWallet+AccountCreation.swift in Sources */,
 				E849CEC020EDD1EB00F38B76 /* EtherWallet+Utils.swift in Sources */,
 				E849CEBE20EB5C3B00F38B76 /* WalletError.swift in Sources */,
+				E83118C120F4523D00FF3CCC /* EtherWallet+Transaction.swift in Sources */,
 				E83118B620F3391E00FF3CCC /* EtherWallet+AccountInfo.swift in Sources */,
 				E849CEBC20EB4BA200F38B76 /* EthplorerAPIResponse.swift in Sources */,
 				E83118BA20F33BCA00FF3CCC /* EtherWallet+AccountBalance.swift in Sources */,
