@@ -1,6 +1,41 @@
 import web3swift
 
-extension EtherWallet {
+public protocol AccountService {
+    var hasAccount: Bool { get }
+    var address: String? { get }
+    func privateKey(password: String) throws -> String
+    func verifyPassword(_ password: String) -> Bool
+    func generateAccount(password: String) throws
+    func importAccount(privateKey: String, password: String) throws
+}
+
+extension EtherWallet: AccountService {
+    public var hasAccount: Bool {
+        return (try? loadKeystore()) != nil
+    }
+    
+    public var address: String? {
+        guard let keystore = try? loadKeystore() else { return nil }
+        return keystore.getAddress()?.address
+    }
+    
+    public func privateKey(password: String) throws -> String {
+        let keystore = try loadKeystore()
+        guard let address = keystore.getAddress()?.address else {
+            throw WalletError.malformedKeystore
+        }
+        guard let ethereumAddress = EthereumAddress(address) else {
+            throw  WalletError.invalidAddress
+        }
+        let privateKeyData = try keystore.UNSAFE_getPrivateKeyData(password: password, account: ethereumAddress)
+        
+        return privateKeyData.toHexString()
+    }
+    
+    public func verifyPassword(_ password: String) -> Bool {
+        return (try? privateKey(password: password)) != nil
+    }
+    
     public func generateAccount(password: String) throws {
         guard let keystore = try EthereumKeystoreV3(password: password) else {
             throw WalletError.malformedKeystore

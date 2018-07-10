@@ -1,7 +1,14 @@
 import web3swift
 import BigInt
 
-extension EtherWallet {
+public protocol BalanceService {
+    func etherBalanceSync() throws -> String
+    func etherBalance(completion: @escaping (String?) -> ())
+    func tokenBalance(contractAddress: String) throws -> String
+    func tokenBalanceAsync(contractAddress: String, completion: @escaping (String?) -> ())
+}
+
+extension EtherWallet: BalanceService {
     public func etherBalanceSync() throws -> String {
         guard let address = address else { throw WalletError.accountDoesNotExist }
         guard let ethereumAddress = EthereumAddress(address) else { throw WalletError.invalidAddress }

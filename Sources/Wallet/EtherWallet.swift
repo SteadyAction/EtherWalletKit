@@ -2,17 +2,15 @@ import web3swift
 import BigInt
 
 public class EtherWallet {
-    public class Utils {
-        static let shared = EtherWallet.Utils()
-        private init() { }
-    }
+    private static let shared = EtherWallet()
+    public static let account: AccountService = EtherWallet.shared
+    public static let balance: BalanceService = EtherWallet.shared
+    public static let transaction: TransactionService = EtherWallet.shared
     
-    public static let shared = EtherWallet()
-    
-    public let defaultGasLimitForTokenTransfer = 100000
     let web3Main = Web3.InfuraMainnetWeb3()
     let keystoreDirectoryName = "/keystore"
     let keystoreFileName = "/key.json"
+    let defaultGasLimitForTokenTransfer = 100000
     
     var options: Web3Options
     var keystoreCache: EthereumKeystoreV3?

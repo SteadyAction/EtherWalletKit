@@ -1,8 +1,23 @@
 import web3swift
 import BigInt
 
-extension EtherWallet {
-    public func sendEtherSync(to address: String, amount: String, password: String, gasPrice: String? = nil) throws -> String {
+public protocol TransactionService {
+    func sendEtherSync(to address: String, amount: String, password: String) throws -> String
+    func sendEtherSync(to address: String, amount: String, password: String, gasPrice: String?) throws -> String
+    func sendEther(to address: String, amount: String, password: String, completion: @escaping (String?) -> ())
+    func sendEther(to address: String, amount: String, password: String, gasPrice: String?, completion: @escaping (String?) -> ())
+    func sendTokenSync(to toAddress: String, contractAddress: String, amount: String, password: String, decimal: Int) throws -> String
+    func sendTokenSync(to toAddress: String, contractAddress: String, amount: String, password: String, decimal: Int, gasPrice: String?) throws -> String
+    func sendToken(to toAddress: String, contractAddress: String, amount: String, password: String, decimal:Int, completion: @escaping (String?) -> ())
+    func sendToken(to toAddress: String, contractAddress: String, amount: String, password: String, decimal:Int, gasPrice: String?, completion: @escaping (String?) -> ())
+}
+
+extension EtherWallet: TransactionService {
+    public func sendEtherSync(to address: String, amount: String, password: String) throws -> String {
+        return try sendEtherSync(to: address, amount: amount, password: password, gasPrice: nil)
+    }
+    
+    public func sendEtherSync(to address: String, amount: String, password: String, gasPrice: String?) throws -> String {
         guard let toAddress = EthereumAddress(address) else { throw WalletError.invalidAddress }
         let keystore = try loadKeystore()
         
@@ -30,7 +45,11 @@ extension EtherWallet {
         }
     }
     
-    public func sendEther(to address: String, amount: String, password: String, gasPrice: String? = nil, completion: @escaping (String?) -> ()) {
+    public func sendEther(to address: String, amount: String, password: String, completion: @escaping (String?) -> ()) {
+        sendEther(to: address, amount: amount, password: password, gasPrice: nil, completion: completion)
+    }
+    
+    public func sendEther(to address: String, amount: String, password: String, gasPrice: String?, completion: @escaping (String?) -> ()) {
         DispatchQueue.global().async {
             let txHash = try? self.sendEtherSync(to: address, amount: amount, password: password, gasPrice: gasPrice)
             DispatchQueue.main.async {
@@ -39,7 +58,11 @@ extension EtherWallet {
         }
     }
     
-    public func sendTokenSync(to toAddress: String, contractAddress: String, amount: String, password: String, decimal: Int, gasPrice: String? = nil) throws -> String {
+    public func sendTokenSync(to toAddress: String, contractAddress: String, amount: String, password: String, decimal: Int) throws -> String {
+        return try sendTokenSync(to: toAddress, contractAddress: contractAddress, amount: amount, password: password, decimal: decimal, gasPrice: nil)
+    }
+    
+    public func sendTokenSync(to toAddress: String, contractAddress: String, amount: String, password: String, decimal: Int, gasPrice: String?) throws -> String {
         guard let tokenAddress = EthereumAddress(contractAddress) else { throw WalletError.invalidAddress }
         guard let fromAddress = address else { throw WalletError.accountDoesNotExist }
         guard let fromEthereumAddress = EthereumAddress(fromAddress) else { throw WalletError.invalidAddress }
@@ -72,7 +95,11 @@ extension EtherWallet {
         }
     }
     
-    public func sendToken(to toAddress: String, contractAddress: String, amount: String, password: String, decimal:Int, gasPrice: String? = nil, completion: @escaping (String?) -> ()) {
+    public func sendToken(to toAddress: String, contractAddress: String, amount: String, password: String, decimal: Int, completion: @escaping (String?) -> ()) {
+        sendToken(to: toAddress, contractAddress: contractAddress, amount: amount, password: password, decimal: decimal, gasPrice: nil, completion: completion)
+    }
+    
+    public func sendToken(to toAddress: String, contractAddress: String, amount: String, password: String, decimal:Int, gasPrice: String?, completion: @escaping (String?) -> ()) {
         DispatchQueue.global().async {
             let txHash = try? self.sendTokenSync(to: toAddress, contractAddress: contractAddress, amount: amount, password: password, decimal: decimal, gasPrice: gasPrice)
             DispatchQueue.main.async {
