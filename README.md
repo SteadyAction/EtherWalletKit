@@ -33,9 +33,16 @@ Then, run the following command:
 $ pod install
 ```
 
-## Author
+## Contribution
 
-SteadyAction, steadyaction@gmail.com
+* Make sure you have a [GitHub account](https://github.com/signup/free)
+* Create a GitHub pull request for your contribution
+  * Clearly describe the issue or feature.
+* Fork the repository on GitHub
+* Create a topic branch from where you want to base your work. ([Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) is welcome)
+  * Please avoid working directly on the `master` branch.
+* Make sure you have added the necessary tests for your changes and make sure all tests pass.
+
 
 ## Donation
 
