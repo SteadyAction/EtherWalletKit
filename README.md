@@ -1,4 +1,6 @@
-![EtherWalletKit: an Ethereum Wallet Toolkit for iOS](https://i.imgur.com/GoVrUM1.png)
+![EtherWalletKit: an Ethereum Wallet Toolkit for iOS](https://i.imgur.com/3nP399a.png)
+
+## Introduction
 
 EtherWalletKit is an Ethereum Wallet Toolkit for iOS.<br><br>
 I hope cryptocurrency and decentralized token economy become more widely adapted.
