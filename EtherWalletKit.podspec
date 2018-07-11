@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'EtherWalletKit'
   s.version          = '0.1.1'
-  s.summary          = 'Ethereum Wallet API Wrapper for Swift'
+  s.summary          = 'Ethereum Wallet Toolkit for iOS'
   s.swift_version    = '4.0'
 
 # This description is used to generate tags and improve search results.
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  Ethereum Wallet API Wrapper for Swift - You can implement Ethereum wallet without a server and blockchain knowledge.
+  Ethereum Wallet Toolkit for iOS - You can implement Ethereum wallet without a server and blockchain knowledge.
                        DESC
 
   s.homepage         = 'https://github.com/SteadyAction/EtherWalletKit'
