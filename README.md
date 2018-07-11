@@ -1,4 +1,4 @@
-![EtherWalletKit: an Ethereum Wallet Toolkit for iOS](https://i.imgur.com/3nP399a.png)
+![EtherWalletKit: an Ethereum Wallet Toolkit for iOS](https://i.imgur.com/Qyva4AF.png)
 
 ## Introduction
 
