@@ -1,6 +1,4 @@
-![EtherWalletKit: an Ethereum Wallet Toolkit for iOS](https://i.imgur.com/67UDHRA.png)
-
-# EtherWalletKit
+![EtherWalletKit: an Ethereum Wallet Toolkit for iOS](https://i.imgur.com/GoVrUM1.png)
 
 EtherWalletKit is an Ethereum Wallet Toolkit for iOS.<br><br>
 I hope cryptocurrency and decentralized token economy become more widely adapted.
@@ -55,4 +53,4 @@ Only aceept cryptocurrency :joy: <br>
 
 ## License
 
-EtherWalletKit is available under the MIT license. See the LICENSE file for more info.
+EtherWalletKit is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.
