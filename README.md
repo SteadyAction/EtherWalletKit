@@ -39,9 +39,9 @@ SteadyAction, steadyaction@gmail.com
 
 ## Donation
 
-Only aceept cryptocurrency `:joy:` <br>
+Only aceept cryptocurrency :joy: <br>
 
-<u><i>ETH: 0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE</i></u>
+*ETH: 0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE*
 
 
 ## License
