@@ -1,4 +1,7 @@
 ![EtherWalletKit: an Ethereum Wallet Toolkit for iOS](https://i.imgur.com/Qyva4AF.png)
+[![Swift](https://img.shields.io/badge/Swift-4.1-orange.svg)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-9.4-blue.svg)](https://developer.apple.com/xcode)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Introduction
 
