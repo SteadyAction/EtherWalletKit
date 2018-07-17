@@ -38,6 +38,31 @@ Then, run the following command:
 $ pod install
 ```
 
+
+## Quick Start
+
+#### 0. Don't forget to import it
+
+``` swift
+
+import EtherWalletKit
+
+```
+
+#### 1. Create an Ethereum Wallet
+
+```swift
+
+
+// Generate a new account with its new password.
+EtherWallet.account.generateAccount(password: "ABCDEFG")
+
+// Import an existing account from its private key and set its new password.
+EtherWallet.account.importAccount(privateKey: "1ab71820a87018205a0b9172530ae3910db8a0f0a9f0d92238, password: "ABCDEFG")
+ 
+```
+Note: ```Password``` will be automatically saved to the device and it is required to access the wallet.
+
 ## Contribution
 
 * Make sure you have a [GitHub account](https://github.com/signup/free)
