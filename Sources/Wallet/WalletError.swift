@@ -6,4 +6,6 @@ public enum WalletError: Error {
     case malformedKeystore
     case networkFailure
     case conversionFailure
+    case notEnoughBalance
+    case contractFailure
 }
