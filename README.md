@@ -78,7 +78,7 @@ EtherWallet.balance.tokenBalance(contractAddress: "0xd26114cd6EE289AccF82350c8d8
 #### 3. Send
 
 ```swift
-// send Ether to an address. The password should be eqaul to the password of wallet created.
+// send Ether to an address.
 EtherWallet.transaction.sendEther(to: "0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE", amount: "1.5", password: "ABCDEFG") { txHash in
     print(txHash)
 }
