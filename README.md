@@ -83,7 +83,7 @@ EtherWallet.transaction.sendEther(to: "0x7777787C97a35d37Db8E5afb0C92BCfd4F6480b
     print(txHash)
 }
 
-// send Ether to an address.
+// send a token to an address.
 EtherWallet.transaction.sendToken(to: "0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE", contractAddress: "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07", amount: "20", password: "ABCDEFG", decimal: 18) { txHash in
     print(txHash)
 }
