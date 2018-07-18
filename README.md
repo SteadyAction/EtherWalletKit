@@ -59,6 +59,8 @@ EtherWallet.account.generateAccount(password: "ABCDEFG")
 EtherWallet.account.importAccount(privateKey: "1ab71820a87018205a0b9172530ae3910db8a0f0a9f0d92238, password: "ABCDEFG")
 ```
 
+Note: ```Password``` will be automatically saved to the device and it is required to access the wallet.
+
 #### 2. Get balance
 
 ```swift
@@ -72,9 +74,6 @@ EtherWallet.balance.tokenBalance(contractAddress: "0xd26114cd6EE289AccF82350c8d8
     print(balance)
 }
 ```
-
-
-Note: ```Password``` will be automatically saved to the device and it is required to access the wallet.
 
 ## Contribution
 
