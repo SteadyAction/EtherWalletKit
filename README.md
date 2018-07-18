@@ -75,6 +75,18 @@ EtherWallet.balance.tokenBalance(contractAddress: "0xd26114cd6EE289AccF82350c8d8
 }
 ```
 
+#### 3. Send
+
+```swift
+EtherWallet.transaction.sendEther(to: "0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE", amount: "1.5", password: "ABCDEFG") { txHash in
+    print(txHash)
+}
+        
+EtherWallet.transaction.sendToken(to: "0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE", contractAddress: "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07", amount: "20", password: "ABCDEFG", decimal: 18) { txHash in
+    print(txHash)
+}
+```
+
 ## Contribution
 
 * Make sure you have a [GitHub account](https://github.com/signup/free)
