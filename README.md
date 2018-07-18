@@ -52,15 +52,28 @@ import EtherWalletKit
 #### 1. Create an Ethereum Wallet
 
 ```swift
-
-
 // Generate a new account with its new password.
 EtherWallet.account.generateAccount(password: "ABCDEFG")
 
 // Import an existing account from its private key and set its new password.
 EtherWallet.account.importAccount(privateKey: "1ab71820a87018205a0b9172530ae3910db8a0f0a9f0d92238, password: "ABCDEFG")
- 
 ```
+
+#### 2. Get balance
+
+```swift
+// Get balance of Ether
+EtherWallet.balance.etherBalance { balance in
+    print(balance)
+}
+
+// Get balance of a token
+EtherWallet.balance.tokenBalance(contractAddress: "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07") { balance in
+    print(balance)
+}
+```
+
+
 Note: ```Password``` will be automatically saved to the device and it is required to access the wallet.
 
 ## Contribution
