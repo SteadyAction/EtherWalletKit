@@ -38,8 +38,8 @@ extension EtherWallet: TransactionService {
         let sendResult = intermediateSend.send(password: password)
         switch sendResult {
         case .success(let result):
-            guard let txhash = result["txhash"] else { throw WalletError.networkFailure }
-            return txhash
+            guard let txHash = result["txhash"] else { throw WalletError.networkFailure }
+            return txHash
         case .failure(_):
             throw WalletError.networkFailure
         }
@@ -88,8 +88,8 @@ extension EtherWallet: TransactionService {
         let contractCall =  contractMethod.send(password: password, onBlock: "latest")
         switch contractCall {
         case .success(let result):
-            guard let txhash = result["txhash"] else { throw WalletError.networkFailure }
-            return txhash
+            guard let txHash = result["txhash"] else { throw WalletError.networkFailure }
+            return txHash
         case .failure(_):
             throw WalletError.networkFailure
         }
