@@ -78,14 +78,18 @@ EtherWallet.balance.tokenBalance(contractAddress: "0xd26114cd6EE289AccF82350c8d8
 #### 3. Send
 
 ```swift
+// send Ether to an address. The password should be eqaul to the password of wallet created.
 EtherWallet.transaction.sendEther(to: "0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE", amount: "1.5", password: "ABCDEFG") { txHash in
     print(txHash)
 }
-        
+
+// send Ether to an address.
 EtherWallet.transaction.sendToken(to: "0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE", contractAddress: "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07", amount: "20", password: "ABCDEFG", decimal: 18) { txHash in
     print(txHash)
 }
 ```
+
+Note: ```password``` should be eqaul to the password of wallet created. Also you can put ```gasPrice``` as an extra parameter to set gas price for the transcation.
 
 ## Contribution
 
