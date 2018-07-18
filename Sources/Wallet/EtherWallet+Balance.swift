@@ -4,8 +4,8 @@ import BigInt
 public protocol BalanceService {
     func etherBalanceSync() throws -> String
     func etherBalance(completion: @escaping (String?) -> ())
-    func tokenBalance(contractAddress: String) throws -> String
-    func tokenBalanceAsync(contractAddress: String, completion: @escaping (String?) -> ())
+    func tokenBalanceSync(contractAddress: String) throws -> String
+    func tokenBalance(contractAddress: String, completion: @escaping (String?) -> ())
 }
 
 extension EtherWallet: BalanceService {
@@ -30,7 +30,7 @@ extension EtherWallet: BalanceService {
         }
     }
     
-    public func tokenBalance(contractAddress: String) throws -> String {
+    public func tokenBalanceSync(contractAddress: String) throws -> String {
         let contractEthreumAddress = EthereumAddress(contractAddress)
         guard let contract = web3Main.contract(Web3.Utils.erc20ABI, at: contractEthreumAddress) else { throw
             WalletError.invalidAddress
@@ -46,9 +46,9 @@ extension EtherWallet: BalanceService {
         return "\(balance)"
     }
     
-    public func tokenBalanceAsync(contractAddress: String, completion: @escaping (String?) -> ()) {
+    public func tokenBalance(contractAddress: String, completion: @escaping (String?) -> ()) {
         DispatchQueue.global().async {
-            let balance = try? self.tokenBalance(contractAddress: contractAddress)
+            let balance = try? self.tokenBalanceSync(contractAddress: contractAddress)
             DispatchQueue.main.async {
                 completion(balance)
             }
