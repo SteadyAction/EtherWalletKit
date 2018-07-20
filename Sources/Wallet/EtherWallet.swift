@@ -6,6 +6,7 @@ public class EtherWallet {
     public static let account: AccountService = EtherWallet.shared
     public static let balance: BalanceService = EtherWallet.shared
     public static let transaction: TransactionService = EtherWallet.shared
+    public static let util: UtilService = EtherWallet.shared
     
     let web3Main = Web3.InfuraMainnetWeb3()
     let keystoreDirectoryName = "/keystore"
