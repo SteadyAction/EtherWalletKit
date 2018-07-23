@@ -10,6 +10,16 @@ I hope cryptocurrency and decentralized token economy become more widely adapted
 However, some developers hesitate to add a crypto wallet on apps since blockchian and cryptocurrency are complex and require many new knowledge. <br><br>
 Don't worry. <br>With EtherWalletKit, you can implement Ethereum wallet without a server and blockchain knowledge.
 
+## Features
+#### Released Features
+* Creating/Importing an account(address and private key)
+* Checking Ether and tokens balance
+* Sending Ether and tokens to other addresses
+* Browsing token information
+#### Planned Features
+* Browsing transaction history 
+* Keystore / Mnemonics
+
 ## Installation
 
 ### CocoaPods
