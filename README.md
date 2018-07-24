@@ -19,6 +19,7 @@ Don't worry. <br>With EtherWalletKit, you can implement Ethereum wallet without 
 #### Planned Features
 * Browsing transaction history 
 * Keystore / Mnemonics
+* Custom configuration
 
 ## Installation
 
