@@ -20,6 +20,7 @@ Don't worry. <br>With EtherWalletKit, you can implement Ethereum wallet without 
 * Browsing transaction history 
 * Keystore / Mnemonics
 * Custom configuration
+* Multiple accounts
 
 ## Installation
 
