@@ -68,7 +68,7 @@ import EtherWalletKit
 try? EtherWallet.account.generateAccount(password: "ABCDEFG")
 
 // Import an existing account from its private key and set its new password.
-try? EtherWallet.account.importAccount(privateKey: "1ab71820a87018205a0b9172530ae3910db8a0f0a9f0d92238, password: "ABCDEFG")
+try? EtherWallet.account.importAccount(privateKey: "1dcbc1d6e0a4587a3a9095984cf051a1bc6ed975f15380a0ac97f01c0c045062, password: "ABCDEFG")
 ```
 
 Note: ```Password``` will be automatically saved to the device and it is required to access the wallet.
