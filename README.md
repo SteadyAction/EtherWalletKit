@@ -71,7 +71,7 @@ try? EtherWallet.account.generateAccount(password: "ABCDEFG")
 try? EtherWallet.account.importAccount(privateKey: "1dcbc1d6e0a4587a3a9095984cf051a1bc6ed975f15380a0ac97f01c0c045062, password: "ABCDEFG")
 ```
 
-Note: ```Password``` will be automatically saved to the device and it is required to access the wallet.
+Note: ```password``` will be encrypted and saved to the device and it will be required to access the wallet.
 
 #### 2. Get balance
 
