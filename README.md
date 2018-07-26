@@ -1,7 +1,13 @@
-![EtherWalletKit: an Ethereum Wallet Toolkit for iOS](https://i.imgur.com/Qyva4AF.png)
+
+<p align="center">
+<a href="http://kitura.io/">
+<img src="https://i.imgur.com/Qyva4AF.png" height="200" alt="EtherWalletKit">
+</a>
+
 [![Swift](https://img.shields.io/badge/Swift-4.1-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-9.4-blue.svg)](https://developer.apple.com/xcode)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<img src="https://img.shields.io/badge/os-iOS-green.svg?style=flat" alt="iOS">
 
 ## Introduction
 
@@ -28,30 +34,9 @@ Don't worry. <br>With EtherWalletKit, you can implement an Ethereum wallet witho
 
 ### CocoaPods
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+<p>To integrate EtherWalletKit into your Xcode project using <a href="http://cocoapods.org">CocoaPods</a>, specify it in your <code>Podfile</code>:</p>
 
-```bash
-$ gem install cocoapods
-```
-
-To integrate EtherWalletKit into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
-use_frameworks!
-
-target '<Your Target Name>' do
-    pod 'EtherWalletKit'
-end
-```
-
-Then, run the following command:
-
-```bash
-$ pod install
-```
-
+<pre><code class="ruby language-ruby">pod 'EtherWalletKit'</code></pre>
 
 ## Quick Start
 
