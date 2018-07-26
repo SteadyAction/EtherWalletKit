@@ -13,7 +13,7 @@ extension EtherWallet: BalanceService {
         guard let address = address else { throw WalletError.accountDoesNotExist }
         guard let ethereumAddress = EthereumAddress(address) else { throw WalletError.invalidAddress }
         
-        let balanceInWeiUnitResult = web3.eth.getBalance(address: ethereumAddress)
+        let balanceInWeiUnitResult = web3Instance.eth.getBalance(address: ethereumAddress)
         guard case .success(let balanceInWei) = balanceInWeiUnitResult else { throw WalletError.networkFailure }
         
         guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWei, toUnits: Web3.Utils.Units.eth, decimals: 8, decimalSeparator: ".") else { throw WalletError.conversionFailure }
@@ -31,9 +31,8 @@ extension EtherWallet: BalanceService {
     }
     
     public func tokenBalanceSync(contractAddress: String) throws -> String {
-        web3
         let contractEthreumAddress = EthereumAddress(contractAddress)
-        guard let contract = web3.contract(Web3.Utils.erc20ABI, at: contractEthreumAddress) else { throw
+        guard let contract = web3Instance.contract(Web3.Utils.erc20ABI, at: contractEthreumAddress) else { throw
             WalletError.invalidAddress
         }
         guard let address = address else { throw WalletError.accountDoesNotExist }
