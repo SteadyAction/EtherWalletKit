@@ -1,7 +1,7 @@
 
 <p align="center">
 <a href="http://kitura.io/">
-<img src="https://i.imgur.com/Qyva4AF.png" height="200" alt="EtherWalletKit">
+<img src="https://i.imgur.com/Qyva4AF.png" height="240" alt="EtherWalletKit">
 </a>
 
 [![Swift](https://img.shields.io/badge/Swift-4.1-orange.svg)](https://swift.org)
