@@ -16,11 +16,13 @@ Don't worry. <br>With EtherWalletKit, you can implement Ethereum wallet without 
 * Checking Ether and tokens balance
 * Sending Ether and tokens to other addresses
 * Browsing token information
+* Testnet(Rinkeby) support
 #### Planned Features
 * Browsing transaction history 
 * Keystore / Mnemonics
 * Custom configuration
 * Multiple accounts
+* Third party APIs
 
 ## Installation
 
