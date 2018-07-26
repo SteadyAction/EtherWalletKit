@@ -5,6 +5,7 @@ public class EtherWallet {
     private static let shared = EtherWallet()
     public static let account: AccountService = EtherWallet.shared
     public static let balance: BalanceService = EtherWallet.shared
+    public static let info: InfoService = EtherWallet.shared
     public static let transaction: TransactionService = EtherWallet.shared
     public static let util: UtilService = EtherWallet.shared
     
