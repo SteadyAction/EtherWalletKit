@@ -27,14 +27,14 @@ extension EtherWallet: TransactionService {
         guard etherBalanceInDouble >= amountInDouble else { throw WalletError.notEnoughBalance }
         
         let keystoreManager = KeystoreManager([keystore])
-        web3Main.addKeystoreManager(keystoreManager)
+        web3Instance.addKeystoreManager(keystoreManager)
         
         if let gasPrice = gasPrice {
             options.gasPrice = BigUInt(gasPrice)
         }
         options.value = Web3.Utils.parseToBigUInt(amount, units: .eth)
         
-        let intermediateSend = web3Main.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!.method(options: options)!
+        let intermediateSend = web3Instance.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!.method(options: options)!
         let sendResult = intermediateSend.send(password: password)
         switch sendResult {
         case .success(let result):
@@ -70,7 +70,7 @@ extension EtherWallet: TransactionService {
         
         let keystore = try loadKeystore()
         let keystoreManager = KeystoreManager([keystore])
-        web3Main.addKeystoreManager(keystoreManager)
+        web3Instance.addKeystoreManager(keystoreManager)
         
         var options = Web3Options.defaultOptions()
         options.from = fromEthereumAddress
@@ -82,7 +82,7 @@ extension EtherWallet: TransactionService {
         
         guard let tokenAmount = Web3.Utils.parseToBigUInt(amount, decimals: decimal) else { throw WalletError.conversionFailure }
         let parameters = [toEthereumAddress, tokenAmount] as [AnyObject]
-        guard let contract = web3Main.contract(Web3.Utils.erc20ABI, at: tokenAddress, abiVersion: 2) else { throw WalletError.contractFailure }
+        guard let contract = web3Instance.contract(Web3.Utils.erc20ABI, at: tokenAddress, abiVersion: 2) else { throw WalletError.contractFailure }
         guard let contractMethod = contract.method("transfer", parameters: parameters, options: options) else { throw WalletError.contractFailure }
         
         let contractCall =  contractMethod.send(password: password, onBlock: "latest")

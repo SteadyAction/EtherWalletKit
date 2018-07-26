@@ -8,7 +8,21 @@
 EtherWalletKit is an Ethereum Wallet Toolkit for iOS.<br><br>
 I hope cryptocurrency and decentralized token economy become more widely adapted.
 However, some developers hesitate to add a crypto wallet on apps since blockchian and cryptocurrency are complex and require many new knowledge. <br><br>
-Don't worry. <br>With EtherWalletKit, you can implement Ethereum wallet without a server and blockchain knowledge.
+Don't worry. <br>With EtherWalletKit, you can implement an Ethereum wallet without a server and blockchain knowledge.
+
+## Features
+#### Released Features
+* Creating/Importing an account(address and private key)
+* Checking Ether and tokens balance
+* Sending Ether and tokens to other addresses
+* Browsing token information
+* Testnet(Rinkeby) support
+#### Planned Features
+* Browsing transaction history 
+* Keystore / Mnemonics
+* Custom configuration
+* Multiple accounts
+* Third party APIs
 
 ## Installation
 
@@ -53,13 +67,13 @@ import EtherWalletKit
 
 ```swift
 // Generate a new account with its new password.
-EtherWallet.account.generateAccount(password: "ABCDEFG")
+try? EtherWallet.account.generateAccount(password: "ABCDEFG")
 
 // Import an existing account from its private key and set its new password.
-EtherWallet.account.importAccount(privateKey: "1ab71820a87018205a0b9172530ae3910db8a0f0a9f0d92238, password: "ABCDEFG")
+try? EtherWallet.account.importAccount(privateKey: "1dcbc1d6e0a4587a3a9095984cf051a1bc6ed975f15380a0ac97f01c0c045062, password: "ABCDEFG")
 ```
 
-Note: ```Password``` will be automatically saved to the device and it is required to access the wallet.
+Note: ```password``` will be encrypted and saved to the device and it will be required to access the wallet.
 
 #### 2. Get balance
 
@@ -78,7 +92,7 @@ EtherWallet.balance.tokenBalance(contractAddress: "0xd26114cd6EE289AccF82350c8d8
 #### 3. Send
 
 ```swift
-// send Ether to an address. The password should be eqaul to the password of wallet created.
+// send Ether to an address.
 EtherWallet.transaction.sendEther(to: "0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE", amount: "1.5", password: "ABCDEFG") { txHash in
     print(txHash)
 }
