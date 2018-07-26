@@ -30,7 +30,7 @@ extension EtherWallet: InfoService {
     
     private func erc20contract(address: String) throws -> web3.web3contract {
         let contractEthreumAddress = EthereumAddress(address)
-        guard let contract = web3Main.contract(Web3.Utils.erc20ABI, at: contractEthreumAddress) else { throw WalletError.contractFailure }
+        guard let contract = web3Instance.contract(Web3.Utils.erc20ABI, at: contractEthreumAddress) else { throw WalletError.contractFailure }
         
         return contract
     }
