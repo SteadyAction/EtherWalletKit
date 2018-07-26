@@ -76,6 +76,7 @@
 		E8B4753A21002C98004B65E9 /* EtherWallet+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EtherWallet+Info.swift"; sourceTree = "<group>"; };
 		E8CB3D7721043E8D00AC6A14 /* EtherWallet+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EtherWallet+History.swift"; sourceTree = "<group>"; };
 		E8D4CF332109CCB4008476B8 /* EtherWalletRinkeby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherWalletRinkeby.swift; sourceTree = "<group>"; };
+		E8D4CF362109E66D008476B8 /* Document.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Document.md; sourceTree = "<group>"; };
 		"EtherWalletKit::EtherWalletKit::Product" /* EtherWalletKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EtherWalletKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"EtherWalletKit::EtherWalletKitTests::Product" /* EtherWalletKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = EtherWalletKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -161,6 +162,14 @@
 			path = Structure;
 			sourceTree = "<group>";
 		};
+		E8D4CF352109E66D008476B8 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4CF362109E66D008476B8 /* Document.md */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 		OBJ_14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +187,7 @@
 				E8665C8520E394CF00F4AD19 /* LICENSE */,
 				E8665C8620E394CF00F4AD19 /* README.md */,
 				E83C249E20E399B0005645EF /* Sources */,
+				E8D4CF352109E66D008476B8 /* Docs */,
 				OBJ_14 /* Products */,
 				83A5C5AAC8028885D5C13320 /* Pods */,
 				287731197E01E164172DCDF5 /* Frameworks */,
