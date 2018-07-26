@@ -8,4 +8,5 @@ public enum WalletError: Error {
     case conversionFailure
     case notEnoughBalance
     case contractFailure
+    case unexpectedResult
 }
