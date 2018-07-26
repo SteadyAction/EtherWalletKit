@@ -8,7 +8,10 @@ import EtherWalletKit
 
 ```
 
-#### 1. Create an Ethereum Wallet
+#### Mainet or Testnet(Rinkeby)
+If you want to work on the testnet(Rinkeby), use `EtherWalletRinkeby` instead of `EtherWallet`.
+
+#### Create an Ethereum Wallet
 
 ```swift
 // Generate a new account with its new password.
@@ -20,7 +23,7 @@ try? EtherWallet.account.importAccount(privateKey: "1dcbc1d6e0a4587a3a9095984cf0
 
 Note: ```password``` will be encrypted and saved to the device and it will be required to access the wallet.
 
-#### 2. Get balance
+#### Get balance
 
 ```swift
 // Get balance of Ether
@@ -34,7 +37,7 @@ EtherWallet.balance.tokenBalance(contractAddress: "0xd26114cd6EE289AccF82350c8d8
 }
 ```
 
-#### 3. Send
+#### Send
 
 ```swift
 // send Ether to an address.
