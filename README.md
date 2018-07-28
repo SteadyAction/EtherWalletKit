@@ -90,6 +90,8 @@ EtherWallet.transaction.sendToken(to: "0x7777787C97a35d37Db8E5afb0C92BCfd4F6480b
 
 Note: ```password``` should be eqaul to the password of wallet created. Also you can put ```gasPrice``` as an extra parameter to set gas price for the transcation.
 
+For full documentation, please see [THIS](./Docs/Document.md).
+
 ## Contribution
 
 * Make sure you have a [GitHub account](https://github.com/signup/free)
