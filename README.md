@@ -26,7 +26,7 @@ Don't worry. <br>With EtherWalletKit, you can implement an Ethereum wallet witho
 #### Planned Features
 * Browsing transaction history 
 * Keystore / Mnemonics
-* Custom configuration
+* Custom configuration / advanced transactions
 * Multiple accounts
 * Third party APIs
 
