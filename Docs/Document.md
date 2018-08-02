@@ -23,6 +23,15 @@ try? EtherWallet.account.importAccount(privateKey: "1dcbc1d6e0a4587a3a9095984cf0
 
 Note: ```password``` will be encrypted and saved to the device and it will be required to access the wallet.
 
+#### Get account information
+```swift
+// Get address of your account
+let address = EtherWallet.account.address
+
+// Get private key of your account
+let privateKey = try! EtherWallet.account.privateKey(password: "ABCDEFG")
+```
+
 #### Get balance
 
 ```swift
