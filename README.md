@@ -1,6 +1,6 @@
 
 <p align="center">
-<a href="http://kitura.io/">
+<a href="https://github.com/SteadyAction/EtherWalletKit">
 <img src="https://i.imgur.com/Qyva4AF.png" height="240" alt="EtherWalletKit">
 </a>
 
