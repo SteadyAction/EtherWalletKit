@@ -94,9 +94,9 @@ For full documentation, please see [THIS](./Docs/Document.md).
 
 ## Notes
 
-* Nothing will be sent to a server. Everything wil be worked on the local device and Ethereum Blockchain.
+* Nothing will be sent to a server. Everything will be worked on the local device and Ethereum Blockchain.
 * You dont need to download and sync the nodes because [Infura](https://infura.io/) is doing it for you.
-* ```password``` for wallet is equal to the password for the keystore file. Make sure a ```password``` should be long enough for security reason.
+* ```password``` for wallet is equal to the password for the keystore file. Always make sure a ```password``` is long enough for security.
 
 
 ## Contribution
