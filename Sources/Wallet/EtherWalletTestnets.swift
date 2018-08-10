@@ -7,3 +7,11 @@ public class EtherWalletRinkeby: EtherWallet {
         return web3Rinkeby
     }
 }
+
+public class EtherWalletRopsten: EtherWallet {
+    private let web3Ropsten = Web3.InfuraRopstenWeb3()
+    
+    override var web3Instance: web3 {
+        return web3Ropsten
+    }
+}
