@@ -22,7 +22,7 @@ Don't worry. <br>With EtherWalletKit, you can implement an Ethereum wallet witho
 * Checking Ether and tokens balance
 * Sending Ether and tokens to other addresses
 * Browsing token information
-* Testnet(Rinkeby) support
+* Testnet(Rinkeby & Ropsten) support
 #### Planned Features
 * Browsing transaction history 
 * Keystore / Mnemonics
