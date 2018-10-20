@@ -25,7 +25,7 @@ Don't worry. <br>With EtherWalletKit, you can implement an Ethereum wallet witho
 * Testnet(Rinkeby & Ropsten) support
 #### Planned Features
 * Browsing transaction history 
-* Keystore / Mnemonics
+* Keystore / BIP39 Mnemonics
 * Custom configuration / advanced transactions
 * Multiple accounts
 * Third party APIs
