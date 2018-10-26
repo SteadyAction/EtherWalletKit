@@ -29,6 +29,7 @@ Don't worry. <br>With EtherWalletKit, you can implement an Ethereum wallet witho
 * Custom configuration / advanced transactions
 * Multiple accounts
 * Third party APIs
+* ERC-721 supports
 
 ## Installation
 
