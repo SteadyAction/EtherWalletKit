@@ -57,15 +57,15 @@ extension EtherWallet: AccountService {
     
     func importAccount(mnemonics: String, password: String) throws {
         guard let keystore = (try? BIP32Keystore(mnemonics: mnemonics, password: password)) ?? nil else {
-            throw WalletError.invalidKey
+            throw WalletError.invalidMnemonics
         }
         
         guard let address = keystore.addresses?.first else {
-            throw WalletError.invalidKey
+            throw WalletError.invalidMnemonics
         }
         
         guard let privateKey = try? keystore.UNSAFE_getPrivateKeyData(password: password, account: address).toHexString() else {
-            throw WalletError.invalidKey
+            throw WalletError.invalidMnemonics
         }
         
         try importAccount(privateKey: privateKey, password: password)
