@@ -55,6 +55,22 @@ extension EtherWallet: AccountService {
         try saveKeystore(keystore)
     }
     
+    func importAccount(mnemonics: String, password: String) throws {
+        guard let keystore = (try? BIP32Keystore(mnemonics: mnemonics, password: password)) ?? nil else {
+            throw WalletError.invalidKey
+        }
+        
+        guard let address = keystore.addresses?.first else {
+            throw WalletError.invalidKey
+        }
+        
+        guard let privateKey = try? keystore.UNSAFE_getPrivateKeyData(password: password, account: address).toHexString() else {
+            throw WalletError.invalidKey
+        }
+        
+        try importAccount(privateKey: privateKey, password: password)
+    }
+    
     private func saveKeystore(_ keystore: EthereumKeystoreV3) throws {
         keystoreCache = keystore
         
