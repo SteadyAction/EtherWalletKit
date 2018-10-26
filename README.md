@@ -113,7 +113,7 @@ For full documentation, please see [THIS](./Docs/Document.md).
 
 ## Donation
 
-Only aceept cryptocurrency :joy: <br>
+Only accept cryptocurrency :joy: <br>
 
 **ETH**: *0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE* <br>
 **XLM**: GBWP4JXW4PJGORNTVN3ZIFRZN5NXDNU534G5KULGPUGJE7IHCQILUQ3B
