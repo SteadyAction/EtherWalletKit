@@ -13,7 +13,7 @@
 
 EtherWalletKit is an Ethereum Wallet Toolkit for iOS.<br><br>
 I hope cryptocurrency and decentralized token economy become more widely adapted.
-However, some developers hesitate to add a crypto wallet on apps since blockchian and cryptocurrency are complex and require many new knowledge. <br><br>
+However, some developers hesitate to add a crypto wallet on apps since blockchain and cryptocurrency are complex and require many new knowledge. <br><br>
 Don't worry. <br>With EtherWalletKit, you can implement an Ethereum wallet without a server and blockchain knowledge.
 
 ## Features
