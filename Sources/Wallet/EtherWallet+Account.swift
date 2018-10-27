@@ -24,13 +24,13 @@ extension EtherWallet: AccountService {
     
     public var mnemonics: String? {
         get {
-            return KeychainWrapper.standard.string(forKey: MnemonicsKeystoreKey)
+            return KeychainWrapper.standard.string(forKey: mnemonicsKeystoreKey)
         }
         set {
             if let newValue = newValue {
-                KeychainWrapper.standard.set(newValue, forKey: MnemonicsKeystoreKey)
+                KeychainWrapper.standard.set(newValue, forKey: mnemonicsKeystoreKey)
             } else {
-                KeychainWrapper.standard.removeObject(forKey: MnemonicsKeystoreKey)
+                KeychainWrapper.standard.removeObject(forKey: mnemonicsKeystoreKey)
             }
         }
     }
@@ -69,7 +69,7 @@ extension EtherWallet: AccountService {
         }
         
         try saveKeystore(keystore)
-        saveMnemonics(nil)
+        self.mnemonics = nil
     }
     
     public func importAccount(mnemonics: String, password: String) throws {
@@ -86,7 +86,7 @@ extension EtherWallet: AccountService {
         }
         
         try importAccount(privateKey: privateKey, password: password)
-        saveMnemonics(mnemonics)
+        self.mnemonics = mnemonics
     }
     
     private func saveKeystore(_ keystore: EthereumKeystoreV3) throws {
@@ -112,10 +112,6 @@ extension EtherWallet: AccountService {
         FileManager.default.createFile(atPath: userDir + keystoreDirectoryName + keystoreFileName, contents: keystoreData, attributes: nil)
         
         setupOptionsFrom()
-    }
-    
-    private func saveMnemonics(_ mnemonics: String?) {
-        self.mnemonics = mnemonics
     }
     
     func loadKeystore() throws -> EthereumKeystoreV3 {
