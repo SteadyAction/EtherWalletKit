@@ -1,12 +1,15 @@
 import web3swift
+import SwiftKeychainWrapper
 
 public protocol AccountService {
     var hasAccount: Bool { get }
     var address: String? { get }
+    var mnemonics: String? { get set }
     func privateKey(password: String) throws -> String
     func verifyPassword(_ password: String) -> Bool
     func generateAccount(password: String) throws
     func importAccount(privateKey: String, password: String) throws
+    func importAccount(mnemonics: String, password: String) throws
 }
 
 extension EtherWallet: AccountService {
@@ -17,6 +20,19 @@ extension EtherWallet: AccountService {
     public var address: String? {
         guard let keystore = try? loadKeystore() else { return nil }
         return keystore.getAddress()?.address
+    }
+    
+    public var mnemonics: String? {
+        get {
+            return KeychainWrapper.standard.string(forKey: MnemonicsKeystoreKey)
+        }
+        set {
+            if let newValue = newValue {
+                KeychainWrapper.standard.set(newValue, forKey: MnemonicsKeystoreKey)
+            } else {
+                KeychainWrapper.standard.removeObject(forKey: MnemonicsKeystoreKey)
+            }
+        }
     }
     
     public func privateKey(password: String) throws -> String {
@@ -37,11 +53,11 @@ extension EtherWallet: AccountService {
     }
     
     public func generateAccount(password: String) throws {
-        guard let keystore = try EthereumKeystoreV3(password: password) else {
-            throw WalletError.malformedKeystore
+        guard let mnemonics = try BIP39.generateMnemonics(bitsOfEntropy: 128) else {
+            throw WalletError.unexpectedResult
         }
         
-        try saveKeystore(keystore)
+        try importAccount(mnemonics: mnemonics, password: password)
     }
     
     public func importAccount(privateKey: String, password: String) throws {
@@ -53,22 +69,24 @@ extension EtherWallet: AccountService {
         }
         
         try saveKeystore(keystore)
+        saveMnemonics(nil)
     }
     
-    func importAccount(mnemonics: String, password: String) throws {
+    public func importAccount(mnemonics: String, password: String) throws {
         guard let keystore = (try? BIP32Keystore(mnemonics: mnemonics, password: password)) ?? nil else {
             throw WalletError.invalidMnemonics
         }
         
         guard let address = keystore.addresses?.first else {
-            throw WalletError.invalidMnemonics
+            throw WalletError.malformedKeystore
         }
         
         guard let privateKey = try? keystore.UNSAFE_getPrivateKeyData(password: password, account: address).toHexString() else {
-            throw WalletError.invalidMnemonics
+            throw WalletError.malformedKeystore
         }
         
         try importAccount(privateKey: privateKey, password: password)
+        saveMnemonics(mnemonics)
     }
     
     private func saveKeystore(_ keystore: EthereumKeystoreV3) throws {
@@ -94,6 +112,10 @@ extension EtherWallet: AccountService {
         FileManager.default.createFile(atPath: userDir + keystoreDirectoryName + keystoreFileName, contents: keystoreData, attributes: nil)
         
         setupOptionsFrom()
+    }
+    
+    private func saveMnemonics(_ mnemonics: String?) {
+        self.mnemonics = mnemonics
     }
     
     func loadKeystore() throws -> EthereumKeystoreV3 {
