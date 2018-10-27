@@ -12,7 +12,7 @@ public class EtherWallet {
     private let web3Main = Web3.InfuraMainnetWeb3()
     let keystoreDirectoryName = "/keystore"
     let keystoreFileName = "/key.json"
-    let MnemonicsKeystoreKey = "MnemonicsKeystoreKey"
+    let mnemonicsKeystoreKey = "mnemonicsKeystoreKey"
     let defaultGasLimitForTokenTransfer = 100000
     
     var options: Web3Options
