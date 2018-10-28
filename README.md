@@ -4,8 +4,8 @@
 <img src="https://i.imgur.com/Qyva4AF.png" height="240" alt="EtherWalletKit">
 </a>
 
-[![Swift](https://img.shields.io/badge/Swift-4.1-orange.svg)](https://swift.org)
-[![Xcode](https://img.shields.io/badge/Xcode-9.4-blue.svg)](https://developer.apple.com/xcode)
+[![Swift](https://img.shields.io/badge/Swift-4.2-orange.svg)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-10.0-blue.svg)](https://developer.apple.com/xcode)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <img src="https://img.shields.io/badge/os-iOS-green.svg?style=flat" alt="iOS">
 
