@@ -1,4 +1,5 @@
-import web3swift
+import Web3swift
+import EthereumAddress
 import BigInt
 
 public protocol TransactionService {
@@ -33,15 +34,14 @@ extension EtherWallet: TransactionService {
             options.gasPrice = BigUInt(gasPrice)
         }
         options.value = Web3.Utils.parseToBigUInt(amount, units: .eth)
-        
-        let intermediateSend = web3Instance.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!.method(options: options)!
-        let sendResult = intermediateSend.send(password: password)
-        switch sendResult {
-        case .success(let result):
-            return result.hash
-        case .failure(_):
-            throw WalletError.networkFailure
+        guard let contract = web3Instance.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2) else {
+            throw WalletError.contractFailure
         }
+        contract.transactionOptions = transactionOptions
+        guard let intermediateSend = contract.method() else { throw WalletError.contractFailure }
+        guard let sendResult = try? intermediateSend.send(password: password) else { throw WalletError.networkFailure }
+        
+        return sendResult.hash
     }
     
     public func sendEther(to address: String, amount: String, password: String, completion: @escaping (String?) -> ()) {
@@ -82,15 +82,16 @@ extension EtherWallet: TransactionService {
         guard let tokenAmount = Web3.Utils.parseToBigUInt(amount, decimals: decimal) else { throw WalletError.conversionFailure }
         let parameters = [toEthereumAddress, tokenAmount] as [AnyObject]
         guard let contract = web3Instance.contract(Web3.Utils.erc20ABI, at: tokenAddress, abiVersion: 2) else { throw WalletError.contractFailure }
-        guard let contractMethod = contract.method("transfer", parameters: parameters, options: options) else { throw WalletError.contractFailure }
+        guard let contractMethod = contract.method("transfer", parameters: parameters, extraData: Data(), transactionOptions: transactionOptions) else { throw WalletError.contractFailure }
         
-        let contractCall =  contractMethod.send(password: password, onBlock: "latest")
-        switch contractCall {
-        case .success(let result):
-            return result.hash
-        case .failure(_):
+        var newTransactionOptions = transactionOptions
+        newTransactionOptions.callOnBlock = .latest
+        
+        guard let contractCall = try? contractMethod.send(password: password, transactionOptions: newTransactionOptions) else {
             throw WalletError.networkFailure
         }
+        
+        return contractCall.hash
     }
     
     public func sendToken(to toAddress: String, contractAddress: String, amount: String, password: String, decimal: Int, completion: @escaping (String?) -> ()) {

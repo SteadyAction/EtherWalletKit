@@ -1,56 +1,70 @@
 PODS:
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
-  - CryptoSwift (0.10.0)
-  - libsodium (1.0.12)
-  - PromiseKit (6.3.4):
-    - PromiseKit/CorePromise (= 6.3.4)
-    - PromiseKit/Foundation (= 6.3.4)
-    - PromiseKit/UIKit (= 6.3.4)
-  - PromiseKit/CorePromise (6.3.4)
-  - PromiseKit/Foundation (6.3.4):
+  - CryptoSwift (0.13.0)
+  - EthereumABI (1.1.1):
+    - BigInt (~> 3.1)
+    - CryptoSwift (~> 0.13)
+    - EthereumAddress (~> 1.0.0)
+  - EthereumAddress (1.0.0):
+    - CryptoSwift (~> 0.13)
+  - PromiseKit (6.5.3):
+    - PromiseKit/CorePromise (= 6.5.3)
+    - PromiseKit/Foundation (= 6.5.3)
+    - PromiseKit/UIKit (= 6.5.3)
+  - PromiseKit/CorePromise (6.5.3)
+  - PromiseKit/Foundation (6.5.3):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.3.4):
+  - PromiseKit/UIKit (6.5.3):
     - PromiseKit/CorePromise
-  - Result (3.0.0)
-  - secp256k1_ios (0.1.3)
+  - scrypt (2.0):
+    - CryptoSwift (~> 0.11)
+  - secp256k1_swift (1.0.3)
   - SipHash (1.2.2)
   - SwiftKeychainWrapper (3.0.1)
-  - web3swift (1.1.1):
-    - BigInt (~> 3.1.0)
-    - CryptoSwift (~> 0.10.0)
-    - libsodium (~> 1.0.12)
-    - PromiseKit (~> 6.3.0)
-    - Result (~> 3.0.0)
-    - secp256k1_ios (~> 0.1.3)
+  - SwiftRLP (1.2):
+    - BigInt (~> 3.1)
+  - web3swift (2.0.1):
+    - BigInt (~> 3.1)
+    - CryptoSwift (~> 0.13)
+    - EthereumABI (~> 1.1.1)
+    - EthereumAddress (~> 1.0.0)
+    - PromiseKit (~> 6.3)
+    - scrypt (~> 2.0)
+    - secp256k1_swift (~> 1.0.3)
+    - SwiftRLP (~> 1.1)
 
 DEPENDENCIES:
   - SwiftKeychainWrapper
-  - web3swift (~> 1.1.1)
+  - web3swift (~> 2.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - BigInt
     - CryptoSwift
-    - libsodium
+    - EthereumABI
+    - EthereumAddress
     - PromiseKit
-    - Result
-    - secp256k1_ios
+    - scrypt
+    - secp256k1_swift
     - SipHash
     - SwiftKeychainWrapper
+    - SwiftRLP
     - web3swift
 
 SPEC CHECKSUMS:
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
-  CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
-  libsodium: 9a8faa5ef2fa0d2d57bd7f7d79bf8fb7c1a9f0ea
-  PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
-  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
-  secp256k1_ios: ac9ef04e761f43c58012b28548afa91493761f17
+  CryptoSwift: 16e78bebf567bad1c87b2d58f6547f25b74c31aa
+  EthereumABI: f040f5429e5a4366d028c88b88d9441e137593af
+  EthereumAddress: f476e1320dca3a0024431e713ede7a09c7eb7796
+  PromiseKit: c609029bdd801f792551a504c695c7d3098b42cd
+  scrypt: 3fe5b1a3b0976f97cd87488673a8f7c65708cc84
+  secp256k1_swift: 4fc5c4b2d2c6d21ee8ccb868cdc92da12f38bed9
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
-  web3swift: 4b4e4a0dd16e7081b7190bf8596c5638f313a498
+  SwiftRLP: 98a02b2210128353ca02e4c2f4d83e2a9796db4f
+  web3swift: 33f30ca0e061e0f89117dfb46f5ee9f626eff6d6
 
-PODFILE CHECKSUM: 576dbd7423167488c5e19db3ccc5097cf785b7d1
+PODFILE CHECKSUM: 143d5b1187cf35006bc52f4da1d8328c65343a6d
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

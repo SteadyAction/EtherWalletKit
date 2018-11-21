@@ -1,4 +1,5 @@
-import web3swift
+import Web3swift
+import EthereumAddress
 import BigInt
 
 public protocol BalanceService {
@@ -13,8 +14,9 @@ extension EtherWallet: BalanceService {
         guard let address = address else { throw WalletError.accountDoesNotExist }
         guard let ethereumAddress = EthereumAddress(address) else { throw WalletError.invalidAddress }
         
-        let balanceInWeiUnitResult = web3Instance.eth.getBalance(address: ethereumAddress)
-        guard case .success(let balanceInWei) = balanceInWeiUnitResult else { throw WalletError.networkFailure }
+        guard let balanceInWei = try? web3Instance.eth.getBalance(address: ethereumAddress) else {
+            throw WalletError.networkFailure
+        }
         
         guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWei, toUnits: Web3.Utils.Units.eth, decimals: 8, decimalSeparator: ".") else { throw WalletError.conversionFailure }
         
@@ -38,9 +40,9 @@ extension EtherWallet: BalanceService {
         guard let address = address else { throw WalletError.accountDoesNotExist }
         
         let parameters = [address as AnyObject]
-        let contractMethod = contract.method("balanceOf", parameters: parameters, extraData: Data(), options: options)
-        let balanceOfCallResult = contractMethod?.call(options: nil)
-        guard case .success(let balanceInfo)? = balanceOfCallResult, let balance = balanceInfo["0"] as? BigUInt else { throw WalletError.networkFailure
+        let contractMethod = contract.method("balanceOf", parameters: parameters, extraData: Data(), transactionOptions: transactionOptions)
+        guard let balanceInfo = try? contractMethod?.call(transactionOptions: nil), let balance = balanceInfo?["0"] as? BigUInt  else {
+            throw WalletError.networkFailure
         }
         
         return "\(balance)"

@@ -1,4 +1,5 @@
-import web3swift
+import Web3swift
+import EthereumAddress
 import BigInt
 
 public class EtherWallet {
@@ -16,6 +17,7 @@ public class EtherWallet {
     let defaultGasLimitForTokenTransfer = 100000
     
     var options: Web3Options
+    var transactionOptions: TransactionOptions
     var keystoreCache: EthereumKeystoreV3?
     
     var web3Instance: web3 {
@@ -25,14 +27,20 @@ public class EtherWallet {
     private init() {
         options = Web3Options.defaultOptions()
         options.gasLimit = BigUInt(defaultGasLimitForTokenTransfer)
+        
+        transactionOptions = TransactionOptions.defaultOptions
+        transactionOptions.gasLimit = .limited(BigUInt(defaultGasLimitForTokenTransfer))
+        
         setupOptionsFrom()
     }
     
     func setupOptionsFrom() {
         if let address = address {
             options.from = EthereumAddress(address)
+            transactionOptions.from = EthereumAddress(address)
         } else {
             options.from = nil
+            transactionOptions.from = nil
         }
     }
 }
