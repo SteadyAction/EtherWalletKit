@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EtherWalletKit'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Ethereum Wallet Toolkit for iOS'
   s.swift_version    = '4.0'
 
@@ -39,5 +39,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'web3swift', '~> 0.8.0'
+  s.dependency 'web3swift', '~> 2.0'
 end
