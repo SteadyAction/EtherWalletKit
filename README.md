@@ -23,9 +23,10 @@ Don't worry. <br>With EtherWalletKit, you can implement an Ethereum wallet witho
 * Sending Ether and tokens to other addresses
 * Browsing token information
 * Testnet(Rinkeby & Ropsten) support
+* BIP39 Mnemonics
 #### Planned Features
 * Browsing transaction history 
-* Keystore / BIP39 Mnemonics
+* Keystore import / export
 * Custom configuration / advanced transactions
 * Multiple accounts
 * Third party APIs
