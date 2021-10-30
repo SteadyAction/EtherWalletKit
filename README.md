@@ -112,13 +112,6 @@ For full documentation, please see [THIS](./Docs/Document.md).
 * Make sure you have added the necessary tests for your changes and make sure all tests pass.
 
 
-## Donation
-
-Only accept cryptocurrency :joy: <br>
-
-**ETH**: *0x7777787C97a35d37Db8E5afb0C92BCfd4F6480bE* <br>
-
-
 ## License
 
 EtherWalletKit is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.
